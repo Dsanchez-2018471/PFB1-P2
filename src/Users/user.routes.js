@@ -17,6 +17,6 @@ const Router = Router();
 Router.post(
     "/",
     [
-        check()
+        che
     ]
 )
