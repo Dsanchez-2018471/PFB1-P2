@@ -1,4 +1,4 @@
-import { Router } from 'express';
+import { Router, Router } from 'express';
 import { check } from 'express-validator';
 import {
     userPost
@@ -12,3 +12,11 @@ import {
 } from '../helpers/db-validators.js';
 import { validarCampos } from '../middlewares/validar-campos.js';
 
+const Router = Router();
+
+Router.post(
+    "/",
+    [
+        check()
+    ]
+)
