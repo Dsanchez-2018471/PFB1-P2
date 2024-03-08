@@ -31,4 +31,26 @@ export const validarJWT = async (req, res, next) => {
             msg: "Token inválido"
         });
     }
+
+    try {
+        const { uid } = jwt.verify(token, process.env.SECRETORPRIVATEKEY);
+        const usuario = await Usuario.findById(uid);
+        if (!usuario){
+            return res.status(401).json({
+                msg: "Usuario inexistente en la base de datos",
+            });
+        }
+        if (!usuario.estado) {
+            return res.status(401).json({
+                msg: "Tonken inválido - Estado de usuario:false",
+            });
+        }
+        req.usuario = usuario;
+        next();
+    } catch (e) {
+        console.log(e),
+        res.status(401).json({
+            msg: "Token inválido",
+        });
+    }
 };
