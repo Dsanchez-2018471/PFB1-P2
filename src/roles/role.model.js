@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 const RoleShema = mongoose.Schema({
     role:{
         type:String,
-        required:[true,"Please provide a role"]
+        required:[true,"Por favor su role es obligatorio"]
     }
 });
 
