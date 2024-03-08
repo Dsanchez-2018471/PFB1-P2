@@ -1,5 +1,5 @@
 import { Request, request, response } from "express";
-import User from '../models/User';
+import User from '../models/user';
 
 export const tieneRole = (...roles) => {
     return async (req = request, res = response, next) => {

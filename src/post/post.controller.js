@@ -1,5 +1,5 @@
 import Post from '../post/post.js';
-import userHasComment from '../Users/userHasCommet.js';
+import userHasComment from '../user/userHasComment.js';
 
 export const postPublicacion = async (req, res) => {
     try {

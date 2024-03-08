@@ -1,31 +1,79 @@
-import { Router, Router } from 'express';
-import { check } from 'express-validator';
+import { Router } from "express";
+import { check } from "express-validator";
 import {
-    userPost
-} from './user.controller.js';
-
+  usuariosGet,
+  usuariosPost,
+  getUsuarioById,
+  usuariosPut,
+  usuariosDelete,
+} from "./user.controller.js";
 import {
-    existMail,
-    isValidRole,
-    existsUser
+  existenteEmail,
+  existeUsuarioById,
+} from "../helpers/db-validators.js";
+import { validarCampos } from "../middlewares/validar-campos.js";
+import { tieneRole } from "../middlewares/validar-roles.js";
+import { validarJWT } from "../middlewares/validar-jwt.js";
+import { login } from "../auth/auth.controller.js";
 
-} from '../helpers/db-validators.js';
-import { validarCampos } from '../middlewares/validar-campos.js';
+const router = Router();
 
-const Router = Router();
+router.get("/", usuariosGet);
 
-Router.post(
-    "/",
+router.get(
+  "/:id",
+  [
+    check("id", "No es un ID válido").isMongoId(),
+    check("id").custom(existeUsuarioById),
+    validarCampos,
+  ],
+  getUsuarioById
+);
+
+router.post(
+  "/registro",
+  [
+    check("nombre", "El nombre es obligatorio").not().isEmpty(),
+    check("password", "El password debe ser mayor a 6 caracteres").isLength({
+      min: 6,
+    }),
+    check("correo", "Este no es un correo válido").isEmail(),
+    check("correo").custom(existenteEmail),
+    validarCampos,
+  ],
+  usuariosPost
+);
+
+router.put(
+  "/:id",
+  [
+    check("id", "No es un ID válido").isMongoId(),
+    check("id").custom(existeUsuarioById),
+    validarCampos,
+  ],
+  usuariosPut
+);
+
+router.delete(
+  "/:id",
+  [
+    validarJWT,
+    tieneRole("ADMIN_ROLE", "VENTAS_ROLE"),
+    check("id", "No es un ID válido").isMongoId(),
+    check("id").custom(existeUsuarioById),
+    validarCampos,
+  ],
+  usuariosDelete
+);
+
+router.post('/login',
     [
-        check('name', 'name is required').not().isEmpty(),
-        check("password", "The password must 6 characters").isLength({ min: 6 }),
-        check("mail", "This is not a valid email").isEmail(),
-        check("mail").custom(existMail),
-        check("role").custom(isValidRole),
+        check('correo', 'El email no es un correo valido').isEmail(),
+        check('password', 'La contraseña es obligatoria').not().isEmpty(),
         validarCampos
-        
-    ],
-    userPost
-)
+    ], login
+    );
+
+
 
 export default router;
