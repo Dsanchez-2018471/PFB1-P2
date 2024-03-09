@@ -35,7 +35,7 @@ router.post(
     ], categoriaPost);
 
 
-
+// Comentario para hacer push
 
 
 export  default router;
