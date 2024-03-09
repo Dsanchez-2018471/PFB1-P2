@@ -10,6 +10,7 @@ import authRoutes from '../src/auth/auth.routes.js';
 import categoriasRoutes from '../src/categorias/categoria.routes.js'
 import ProductoRoutes from '../src/productos/producto.routes.js';
 
+
 class Server{
     constructor(){
         this.app = express();
