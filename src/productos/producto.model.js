@@ -1,25 +1,37 @@
-const {Schema, model} = require('mongoose');
-// import mongoose from 'mongoose';
-const RoleSchema = Schema ({
-    nombreP: {
-        type:String,
-        require: [true, 'El Nombre es obligatorio para el producto']  
-    },
+import mongoose, { Mongoose } from 'mongoose';
+import Categoria from '../categorias/categoria.model.js';
 
-    precioP: {
-        type:String,
-        require: [true,'el Precio del Producto es Obligatorio'] 
-    },
-
-    estadoP: {
+const ProductoSchema = mongoose.Schema({
+    name: {
         type: String,
-        enum: ['Disponible', 'No Disponible'],
-        default:'Disponible'
-    },
-    catalogoP:{
+        required: [true, 'Por favor ingresar nombre'],
+      },
+      price: {
         type: String,
-        require: [ true, 'La Categoria es requerida']
-    }
-});
-
-module.exports = model ('Role', RoleSchema); //exportar la
+        require: [true, 'El precio del producto es obligatorio'],
+      },
+      category: [
+        {
+          type: mongoose.Schema.Types.ObjectId,
+          required: [true, 'Categoria obligatoria'],
+          ref: 'Categoria',
+        },
+      ],
+      stock: {
+        type: String,
+        require: [true, 'El stock del producto es obligatorio'],
+      },
+      status: {
+        type: Boolean,
+        default: true,
+      },
+    });
+    
+    ProductoSchema.methods.toJSON = function () {
+      const { __v, _id, ...producto } = this.toObject();
+      producto.pid = _id;
+      return producto;
+    };
+    
+    export default mongoose.model('Producto', ProductoSchema);
+    
