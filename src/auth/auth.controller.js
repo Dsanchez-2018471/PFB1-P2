@@ -23,12 +23,14 @@ export const login = async (req, res) => {
 
         const usuario = await User.findOne({ email });
 
+
         if (!usuario) {
             return res.status(400).json({
                 msg: "El correo electronico es incorrectos."
             });
         }
 
+        // Muestra el mensaje de no encontrar el usuario
         if (!usuario.estado) {
             return res.status(400).json({
                 msg: 'Este usuario es inexistente'
@@ -41,6 +43,7 @@ export const login = async (req, res) => {
                 msg: 'La contrasena es incorrecta'
             });
         }
+
 
         const token = await generarJWT(usuario.id);
         
@@ -58,7 +61,4 @@ export const login = async (req, res) => {
             msg: 'Error, comunicarse con admin'
         });
     }
-
-
-
 }
