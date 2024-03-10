@@ -24,7 +24,7 @@
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"titulo\": \"Por que seguir codificando\",\n  \"categoria\": \"Proyecto\",\n  \"descripcion\": \"Ayudeme profe\"\n}",
+                "raw": "{\n  \"titulo\": \"Prubea\",\n  \"categoria\": \"Estres\",\n  \"descripcion\": \"Yano quiero codificar\"\n}",
                 "form": []
             },
             "tests": []
@@ -48,7 +48,7 @@
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"titulo\": \"Zelda ocarina of time es el mejor juego\",\n  \"categoria\": \"VideoJuegos\",\n  \"descripcion\": \"Ya me lo pase 6 veces\"\n}",
+                "raw": "{\n  \"titulo\": \"Zelda es el mejor juego\",\n  \"categoria\": \"VideoJuegos\",\n  \"descripcion\": \"Lo pase 6 veces\"\n}",
                 "form": []
             },
             "tests": []

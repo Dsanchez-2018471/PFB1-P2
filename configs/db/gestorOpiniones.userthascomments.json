@@ -8,8 +8,8 @@
   "post": {
     "$oid": "65e559c78fbce054cbaf5a9e"
   },
-  "titulo": "Wow",
-  "descripcion": "que loco no?",
+  "titulo": "Wuw",
+  "descripcion": "que?",
   "__v": 0
 },
 {
@@ -22,7 +22,7 @@
   "post": {
     "$oid": "65e559c78fbce054cbaf5a9e"
   },
-  "titulo": "y este random?",
-  "descripcion": "eso es low elo",
+  "titulo": "prueba?",
+  "descripcion": "si lo lee",
   "__v": 0
 }]

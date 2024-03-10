@@ -24,7 +24,7 @@
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"nameUser\": \"Amaro\",\n  \"email\": \"Amaro@kinal.edu.gt\",\n  \"oldPassword\": \"654321\",\n  \"newPassword\": \"654321\"\n}",
+                "raw": "{\n  \"nameUser\": \"Jose\",\n  \"email\": \"Jose@kinal.edu.gt\",\n  \"oldPassword\": \"654321\",\n  \"newPassword\": \"654321\"\n}",
                 "form": []
             },
             "tests": []

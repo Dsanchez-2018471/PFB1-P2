@@ -24,7 +24,7 @@
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\n    \"postId\": \"65e559c78fbce054cbaf5a9e\",\n    \"titulo\":\"y este random?\",\n    \"descripcion\":\"eso es low elo\"\n}\n",
+                "raw": "{\n    \"postId\": \"65e559c78fbce054cbaf5a9e\",\n    \"titulo\":\"prueba?\",\n    \"descripcion\":\"si lo lee\"\n}\n",
                 "form": []
             },
             "tests": []

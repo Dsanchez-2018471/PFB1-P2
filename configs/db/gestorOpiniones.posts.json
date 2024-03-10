@@ -2,9 +2,9 @@
   "_id": {
     "$oid": "65e559a78fbce054cbaf5a9b"
   },
-  "titulo": "El explotamiento laboral",
-  "categoria": "oficina",
-  "descripcion": "ya no quiero",
+  "titulo": "El calentamiento global",
+  "categoria": "naturaleza",
+  "descripcion": "como amo a los perros",
   "user": [
     {
       "$oid": "65e559563c245a9deefd76ca"
@@ -21,9 +21,9 @@
   "_id": {
     "$oid": "65e559c78fbce054cbaf5a9e"
   },
-  "titulo": "Zelda ocarina of time es el mejor juego",
+  "titulo": "Zelda es el mejor juego",
   "categoria": "VideoJuegos",
-  "descripcion": "Ya me lo pase 6 veces",
+  "descripcion": "Lo pase 6 veces",
   "user": [
     {
       "$oid": "65e559563c245a9deefd76ca"
